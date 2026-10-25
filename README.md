@@ -27,7 +27,7 @@ WantedBy=default.target
 
 ```sh
 systemctl --user daemon-reload
-systemctl --user enable --now arti.service
+systemctl --user start arti.service
 systemctl --user enable --now podman-auto-update.timer
 ```
 
