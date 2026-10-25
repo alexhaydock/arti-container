@@ -20,7 +20,6 @@ Description=Arti Tor Proxy
 Image=ghcr.io/alexhaydock/arti-container:main
 PublishPort=127.0.0.1:9150:9150
 AutoUpdate=registry
-AutoRemove=true
 
 [Install]
 WantedBy=default.target
