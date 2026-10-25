@@ -1,0 +1,4 @@
+[proxy]
+# Listen on all interfaces so we can connect
+# from outside the container
+socks_listen = "0.0.0.0:9150"
