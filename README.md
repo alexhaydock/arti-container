@@ -36,3 +36,14 @@ systemctl --user enable --now podman-auto-update.timer
 ```sh
 TOR_PROVIDER=none TOR_SOCKS_PORT=9150 gtk-launch org.torproject.torbrowser-launcher
 ```
+
+## Permanently override Tor Browser (Flatpak version) to use Arti:
+Copy existing `.desktop` file to override it:
+```sh
+cp -fv /var/lib/flatpak/exports/share/applications/org.torproject.torbrowser-launcher.desktop ~/.local/share/applications/org.torproject.torbrowser-launcher.desktop
+```
+
+Add the `--env` vars from above to the `Exec=` line in that newly cloned `.desktop` file:
+```ini
+Exec=/usr/bin/flatpak run --env=TOR_PROVIDER=none --env=TOR_SOCKS_PORT=9150 --branch=stable --arch=x86_64 --command=torbrowser-launcher --file-forwarding org.torproject.torbrowser-launcher @@u %u @@
+```
